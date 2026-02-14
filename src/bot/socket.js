@@ -1,3 +1,5 @@
+const QRCode = require("qrcode");
+
 const {
   default: makeWASocket,
   useMultiFileAuthState,
