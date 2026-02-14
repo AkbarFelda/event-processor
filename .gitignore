@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+
+# env
+.env
+
+# baileys session (WA credentials)
+auth_info/
+**/auth_info/
+
+# persistent status/local data
+bot_status.json
+data/
+*.sqlite
+*.db
+
+# temp files
+tmp_*
+link_*
+*.webp
+*.mp4
+*.jpg
+*.jpeg
+*.png
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db

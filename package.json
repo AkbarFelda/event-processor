@@ -1,0 +1,25 @@
+{
+  "name": "bot-wa-cheeseeye",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@tobyg74/tiktok-api-dl": "^1.3.7",
+    "@whiskeysockets/baileys": "^7.0.0-rc.9",
+    "axios": "^1.13.4",
+    "fluent-ffmpeg": "^2.1.3",
+    "pino": "^10.3.0",
+    "qrcode-terminal": "^0.12.0",
+    "ytdl-core": "^4.11.5"
+  }
+}
