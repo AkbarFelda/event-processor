@@ -72,7 +72,9 @@ async function startSocket() {
 
     if (qr) {
       console.log("[SISTEM] Scan QR:");
-      qrcode.generate(qr, { small: true });
+      // qrcode.generate(qr, { small: true });
+      const url = await QRCode.toDataURL(qr);
+      console.log(url);
     }
 
     if (connection === "open") {
