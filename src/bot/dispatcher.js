@@ -6,8 +6,7 @@ const everyone = require("../comands/everyone");
 const hidetag = require("../comands/hidetag");
 const sticker = require("../comands/sticker");
 const help = require("../comands/help");
-const reminder = require("../comands/reminder");
-// const reminder = require("../comands/reminder");
+const reminder = require("../comands/remind");
 
 const comands = [ping, everyone, hidetag, sticker, help, reminder];
 
