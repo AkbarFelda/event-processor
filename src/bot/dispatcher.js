@@ -1,31 +1,25 @@
 const { buildContext } = require("./context");
 
 // register commands
+const help = require("../comands/help");
 const ping = require("../comands/ping");
 const everyone = require("../comands/everyone");
 const hidetag = require("../comands/hidetag");
 const sticker = require("../comands/sticker");
-const help = require("../comands/help");
-const reminder = require("../comands/remind");
+const remind = require("../comands/remind");
 
-const comands = [ping, everyone, hidetag, sticker, help, reminder];
+const commands = [help, ping, everyone, hidetag, sticker, remind];
 
 async function handleIncomingMessage(sock, m) {
   const ctx = await buildContext(sock, m);
-  if (!ctx.text) return; 
 
-  if (ctx.isGroup) {
-    console.log("GROUP JID:", ctx.from);
-  }
+  // ✅ INI YANG WAJIB biar .help bisa list semua command
+  ctx.commands = commands;
 
-  console.log("==========");
-  console.log("FROM (Chat JID):", ctx.from);
-  console.log("SENDER:", ctx.sender);
-  console.log("IS GROUP:", ctx.isGroup);
-  console.log("TEXT:", ctx.text);
-  console.log("==========");
+  // opsional: skip pesan kosong
+  if (!ctx.text) return;
 
-  for (const cmd of comands) {
+  for (const cmd of commands) {
     try {
       if (cmd.match(ctx)) {
         await cmd.run(ctx);
