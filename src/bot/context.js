@@ -18,6 +18,9 @@ async function buildContext(sock, m) {
     m.message?.extendedTextMessage?.contextInfo?.mentionedJid ||
     [];
 
+  const mentionedJids =
+  m.message?.extendedTextMessage?.contextInfo?.mentionedJid || []; 
+
   return {
     sock,
     m,
@@ -29,6 +32,7 @@ async function buildContext(sock, m) {
     text,
     quoted,
     mentionedJid,
+    mentionedJids,
   };
 }
 

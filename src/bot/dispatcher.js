@@ -3,10 +3,13 @@ const { buildContext } = require("./context");
 // register commands
 const ping = require("../comands/ping");
 const everyone = require("../comands/everyone");
+const hidetag = require("../comands/hidetag");
 const sticker = require("../comands/sticker");
+const help = require("../comands/help");
+const reminder = require("../comands/reminder");
 // const reminder = require("../comands/reminder");
 
-const comands = [ping, everyone, sticker];
+const comands = [ping, everyone, hidetag, sticker, help, reminder];
 
 async function handleIncomingMessage(sock, m) {
   const ctx = await buildContext(sock, m);

@@ -10,7 +10,7 @@ const pino = require("pino");
 
 const { handleIncomingMessage } = require("./dispatcher");
 
-async function startSocket(onQr) {
+async function startSocket({ onQr, onReady } = {}) {
   const authDir = process.env.AUTH_DIR || "auth_info";
   const { state, saveCreds } = await useMultiFileAuthState(authDir);
 
@@ -33,6 +33,7 @@ async function startSocket(onQr) {
 
     if (connection === "open") {
       console.log("[SISTEM] Connected.");
+      if (typeof onReady === "function") onReady(sock);
     }
 
     if (connection === "close") {
@@ -44,7 +45,7 @@ async function startSocket(onQr) {
       console.log("[SISTEM] Disconnected. statusCode:", statusCode);
 
       if (shouldReconnect) {
-        startSocket(onQr);
+        startSocket({ onQr, onReady }); // ✅ callback ikut kebawa saat reconnect
       } else {
         console.log("[SISTEM] Logged out. Hapus auth_info lalu scan ulang.");
       }
